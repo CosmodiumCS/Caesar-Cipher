@@ -31,12 +31,10 @@ Hey Hackers! Blue Cosmo from CCS here and today I want to give an update on the 
 ## Algorithms:
 ```
 Encryption:
-
-		C = (X + N) % 26
+	C = (X + N) % 26
 
 Decryption:
-
-		C = (X - N) % 26
+	C = (X - N) % 26
 ```
 C - encoded character
 
@@ -44,21 +42,18 @@ X - index of character
 
 N - # of indexes that we need to replace [shift key]
 
-
 ## Algorithms [Python]:
 ```
 Encryption:
-
-		Uppercase: 
-                	plaintext += chr((ord(letter) + shift - 65) % 26 + 65)
-		Lowercase: 
-                	plaintext += chr((ord(letter) + shift - 97) % 26 + 97)
+	Uppercase: 
+		plaintext += chr((ord(letter) + shift - 65) % 26 + 65)
+	Lowercase: 
+		plaintext += chr((ord(letter) + shift - 97) % 26 + 97)
 Decryption:
-
-		Uppercase: 
-                	ciphertext += chr((ord(letter) - shift - 65) % 26 + 65)
-		Lowercase: 
-                	ciphertext += chr((ord(letter) - shift - 97) % 26 + 97)
+	Uppercase: 
+		ciphertext += chr((ord(letter) - shift - 65) % 26 + 65)
+	Lowercase: 
+		ciphertext += chr((ord(letter) - shift - 97) % 26 + 97)
 ```
 ord() - matches character to Unicode index
 
