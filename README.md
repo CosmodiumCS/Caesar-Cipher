@@ -1,74 +1,117 @@
 # Caesar-Cipher
-Hey Hackers! Blue Cosmo from CCS here and today I want to give an update on the progress of the CodeX Project. I have started work on the first cipher of the project, The Caesar Cipher! Here's a an overview of the cipher and a video will be releasing soon. Make sure to subscribe to the channel to be notified of it's release.
+> Blue Cosmo
 
-## Project Name: The CodeX Project [Caesar-Cipher]
-
-
-## Implementation:
--Symmetric Encryption Method
-
--Named after Julius Caesar
-
--Works through index change down the alphabet
+## Overview:
 ```
-	WITHOUT CIPHER - [Shift of 0]
-
-	A=1, B=2, C=3, D=4...Z=26
-
-
-	WITH CIPHER - [Shift of 1]
-
-	A=26, B=1, C=2, D=3...Z=25
-
-
-	Plaintext = "Hello, World!"
-
-	Ciphertext = "Ifmmp, Xpsme!" 
+A python based caesar cipher program
+can encrypt, decrypt, and bruteforce text files
 ```
-| Computers don't understand English alphabet indexing, but they do understand UNICODE [A = 65, a = 97]
 
+## Requirements:
+- python 3.8+
 
-## Algorithms:
+## Instructions:
+> Run CaesarCipher Program
+- Open directory in terminal or commandline
+```bash
+python3 caesar-cipher.py 
+Enter File Name :
 ```
-Encryption:
-	C = (X + N) % 26
-
-Decryption:
-	C = (X - N) % 26
+- Enter the file name or path of your file
+```bash
+Enter File Name : helloworld.txt
+Choose an Option :                                                                                                      
+1) Encrypt                                                                                                              
+2) Decrypt                                                                                                              
+3) Bruteforce                                                                                                           
+4) Exit 
 ```
-C - encoded character
-
-X - index of character
-
-N - # of indexes that we need to replace [shift key]
-
-## Algorithms [Python]:
+- Options
+1. Encrypt
 ```
-Encryption:
-	Uppercase: 
-		plaintext += chr((ord(letter) + shift - 65) % 26 + 65)
-	Lowercase: 
-		plaintext += chr((ord(letter) + shift - 97) % 26 + 97)
-Decryption:
-	Uppercase: 
-		ciphertext += chr((ord(letter) - shift - 65) % 26 + 65)
-	Lowercase: 
-		ciphertext += chr((ord(letter) - shift - 97) % 26 + 97)
+Enter File Name : helloworld.txt
+Choose an Option :                                                                                                      
+1) Encrypt                                                                                                              
+2) Decrypt                                                                                                              
+3) Bruteforce                                                                                                           
+4) Exit 
+1
+
+Shift of :
 ```
-ord() - matches character to Unicode index
+- input shift key
+- encrypts text file
+```
+Shift of : 5
+Translating...
+Success! Output Written to encrypted-caesar.txt
+```
 
-chr() - matches index to Unicode character
+2. Decrypt
+```
+Enter File Name : helloworld.txt
+Choose an Option :                                                                                                      
+1) Encrypt                                                                                                              
+2) Decrypt                                                                                                              
+3) Bruteforce                                                                                                           
+4) Exit 
+2
 
-| Additional character added at the end of the encryption algorithm's output
+Shift of :
+```
+- input shift key
+- decrypts text file
+```
+Shift of : 5
+Translating...
+Success! Output Written to encrypted-caesar.txt
+```
 
-## Bruteforcing:
-Bruteforcing a Caesar Cipher encryption is pretty easy because there are only 26 possible shift keys. 
+3. Bruteforce
+```
+Enter File Name : helloworld.txt
+Choose an Option :                                                                                                      
+1) Encrypt                                                                                                              
+2) Decrypt                                                                                                              
+3) Bruteforce                                                                                                           
+4) Exit 
+3
 
-| How is that possible? ['A' has an index of 1 & 'Z' has an index of 26] Because 'Z' is the last letter, there is no index higher than 26. So once 'Z' receives a shifted index of 1, it can has to recycle back to 26 because there are no other indexes. Therefore, if the shift key is 36, than the shift key is also equal to 10.
+Choose an Option :
+1) Bruteforce All shift Keys
+2) Choose Range
+```
+- Option 1 - Bruteforce using all 26 keys
+```
+Choose an Option :
+1) Bruteforce All shift Keys
+2) Choose Range
+1
+Bruteforcing...
+Success! Output Written to bruteforce-all-keys.txt
+```
+- Option 2 - Choose a custom range of keys (Example: 10 - 20)
+```
+Choose an Option :
+1) Bruteforce All shift Keys
+2) Choose Range
+2
 
-In order to bruteforce this cipher, all we have to do is decrypt the cyphertext 26 times. Each of those times with a different key ranging from 0 to 26.
+Start Range : 10
+End Range : 20
+Bruteforcing...
+Success! Output Written to bruteforce-range.txt
+```
+4. Exit
+- exits program
 
-## Background:
-I chose to start with the Caesar Cipher because it was essentially the inspiration for this whole project. This was the encryption that was used in the codex pages from Assassins Creed II. I figured it would be the most appropriate of the ciphers to begin with. Besides that, thanks for reading this weeks issue; and as always,
 
-Happy Hacking!
+## Output:
+- "encrypted-caesar.txt"
+	- output file for encrypted caesar text
+- "decrypted-caesar.txt"
+	- output file for decrypted caesar text
+- "bruteforce-all-keys.txt"
+	- output file for bruteforced caesar text
+- "bruteforce-range.txt"
+	- output file for bruteforced ceasar text [with a custom range]
